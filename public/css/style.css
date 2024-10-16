@@ -1,0 +1,159 @@
+@import url('variables.css');
+
+.zain-black {
+    font-family: "Zain", sans-serif;
+    font-weight: bolder;
+    font-size: 40px;
+    color: white;
+}
+
+.text-navbar-size{
+    font-size: 22px;
+}
+
+.roboto-medium {
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.color-font-btn{
+    color: var(--color-btn-font);
+    font-weight: bold;
+}
+
+body{
+    background-image: url('../assets/8d341621-650e-450a-84d8-7af57e063f82.gif');
+    color: rgb(34, 83, 187);
+    background-position-y: center;
+    background-position-x: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+header{
+    font-weight: bold;
+    background-color: var(--color2);
+}
+
+.btn-primary{
+    background-color: var(--color5) !important;
+    border: none;
+}
+
+#container-home-text{
+    padding: 25px;
+    background-color: var(--color2);
+    height: 16rem;
+    border-radius: 14px;
+    box-shadow: 1px 4px 10px 1px rgba(0, 0, 0, 0.568);
+    backdrop-filter: blur(6px) saturate(159%);
+    -webkit-backdrop-filter: blur(6px) saturate(159%);
+    background-color: rgba(55, 73, 87, 0.54);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+}
+
+.button-container button {
+    display: inline-block;
+    width: 150px;
+    height: 50px;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s ease-in;
+    z-index: 1;
+}
+
+.button-container button::before,
+.button-container button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 0;
+    height: 100%;
+    transform: skew(15deg);
+    transition: all 0.5s;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.button-container button::before {
+    left: -10px;
+    background: var(--color5);
+}
+
+.button-container button::after {
+    right: -10px;
+    background: var(--color6);
+}
+
+.button-container button:hover::before,
+.button-container button:hover::after {
+    width: 58%;
+}
+
+.button-container button:hover span {
+    color: #ffffff;
+    transition: 0.3s;
+}
+
+.button-container button span {
+    color: var(--color6);
+    font-size: 18px;
+    transition: all 0.3s ease-in;
+}
+
+#btn-top-trends {
+    padding: 5px 15px;
+    text-transform: uppercase;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    text-shadow: none;
+    background-color: var(--color1);
+    cursor: pointer;
+    box-shadow: transparent;
+    transition: 0.5s ease;
+    user-select: none;
+  }
+  
+  #btn-top-trends:hover,
+  #btn-top-trends:focus {
+    color: #ffffff;
+    background: var(--color5);
+    border: 1px solid var(--color5);
+    text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 20px #ffffff;
+    box-shadow: 0 0 5px var(--color5), 0 0 20px var(--color5), 0 0 50px var(--color5), 0 0 100px var(--color5);
+  }
+
+/*Ajustes do botão da navbar*/
+.navbar-nav {
+    flex: 1;
+    display: flex;
+    justify-content: right;
+}
+
+.navbar-nav .nav-item {
+    display: flex;
+}
+
+#btn-top-trends {
+    margin: 0 auto;
+}
+
+.corTextNavbar {
+    color: var(--color5) !important;
+    font-weight: bold !important;
+    font-size: 18px;
+    transition: font-size 0.3s ease-in-out;
+}
+
+.corTextNavbar:hover {
+    text-decoration: underline;
+    font-size: 24px;
+}
+
+  
+
+  

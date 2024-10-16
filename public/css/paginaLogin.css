@@ -1,0 +1,108 @@
+@import url('variables.css');
+
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--color1); /* Cor base para fallback */
+  background: -moz-linear-gradient(top, var(--color1) 0%, var(--color3) 50%, var(--color5) 100%);
+  background: -webkit-linear-gradient(top, var(--color1) 0%, var(--color3) 50%, var(--color5) 100%);
+  background: linear-gradient(to bottom, var(--color1) 0%, var(--color3) 50%, var(--color5) 100%);
+}
+  
+.card {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  border: none;
+  width: 30rem;
+  background-color: var(--color1);
+}
+
+button {
+  font-size: 18px;
+}
+
+h3 {
+  color: #ffffff;
+}
+
+.labels-card{
+  color: white;
+  font-size: large;
+}
+
+/* Estilo para a animação do card vindo da esquerda */
+@keyframes slideInLeft {
+    from {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  .animate-card {
+    animation: slideInLeft 1s ease-out;
+    opacity: 1;
+  }
+
+/*Estilo botão de cadastro*/
+.button-container button {
+  margin-top: 20px;
+  display: inline-block;
+  width: 300px;
+  height: 45px;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.5s ease-in;
+  z-index: 1;
+  background-color: var(--color2);
+  box-shadow: 5px 6px 9px 0px rgba(0, 0, 0, 0.61);
+}
+
+.button-container button::before,
+.button-container button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 0;
+  height: 100%;
+  transform: skew(15deg);
+  transition: all 0.5s;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.button-container button::before {
+  left: -10px;
+  background: var(--color5);
+}
+
+.button-container button::after {
+  right: -20px;
+  background: var(--color6);
+}
+
+.button-container button:hover::before,
+.button-container button:hover::after {
+  width: 58%;
+}
+
+.button-container button:hover span {
+  color: #ffffff;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.button-container button span {
+  color: var(--color6);
+  font-weight: bold;
+  font-size: 18px;
+  transition: all 0.3s ease-in;
+}
+  

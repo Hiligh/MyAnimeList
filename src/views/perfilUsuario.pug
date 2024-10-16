@@ -1,0 +1,57 @@
+doctype html
+html(lang="pt-br")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title MiruYumo - Perfil Usuário
+    link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css")
+    link(rel="stylesheet" href="/css/perfilUsuario.css")
+
+  body
+    .container.m-0
+      .row
+        // Sidebar
+        .col-md-3.sidebar.d-flex.flex-column
+          .d-flex.justify-content-center.align-items-center.mt-4
+            img(src="../assets/17004.png" alt="Imagem do Usuário" class="user-img")
+          div#usernameBtn.mt-5.mb-5 #{infoUsuario.Nome}
+          ul.mt-5
+            li
+              a.btn.btn-primary.mb-2.btn-block(href="/paginaPrincipal") Página Principal
+            li
+              a.btn.btn-primary.mb-2.btn-block(href="/listaAnimes") Listas Animes
+            li
+              a.btn.btn-primary.mb-2.btn-block(href="/listaMangas") Listas Mangás
+            li
+              a.btn.btn-primary.mb-2.btn-block(href="/logout") Sair da Conta
+        
+        // Main content
+        .col-md-9
+          .col-md-12#divSuperior
+            .row.justify-content-center.mt-3
+              .col-md-6.text-center
+                h2 000
+                h5 Total de Animes lidos em 2024!
+
+            .row.justify-content-center.mt-2
+              .col-md-6.text-center
+                h2 000
+                h5 Total de Mangás lidos em 2024!
+          
+
+          .col-md-12#divInferior.p-5.mt-5
+            .row
+              // Primeira coluna de botões
+              .col-md-6.d-flex.flex-column.align-items-center
+                button.btn.btn-secondary.mb-2.btn-block Excluir Listas Anime
+                button.btn.btn-secondary.btn-block Excluir Listas Mangá
+              
+              // Segunda coluna de botões
+              .col-md-6.d-flex.flex-column.align-items-center
+                button.btn.btn-secondary.mb-2.btn-block Editar Informações do Usuário
+                button.btn.btn-danger.btn-block Excluir Conta
+
+    // Incluindo o JavaScript do Bootstrap
+    script(src="https://code.jquery.com/jquery-3.5.1.slim.min.js")
+    script(src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js")
+    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js")

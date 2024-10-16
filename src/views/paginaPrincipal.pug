@@ -1,0 +1,88 @@
+doctype html
+html(lang="pt-br")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title MiruYumo - Página Principal
+    link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css")
+    link(rel="stylesheet", href="/css/paginaPrincipal.css")
+
+  body
+    nav.navbar.navbar-expand-lg.navbar-light.bg-light
+      a.navbar-brand(href="/paginaPrincipal") MiruYomuHub
+      button.navbar-toggler(type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação")
+        span.navbar-toggler-icon
+      .collapse.navbar-collapse(id="conteudoNavbarSuportado")
+        ul.navbar-nav.mr-auto.ml-auto
+          li.nav-item
+            a.nav-link(href="#") Ranking Animes
+            span.sr-only
+          li.nav-item
+            a.nav-link(href="#") Ranking Mangás
+          li.nav-item.dropdown
+            a.nav-link.dropdown-toggle(href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false") #{infoUsuario.Nome}
+            .dropdown-menu(aria-labelledby="navbarDropdown")
+              a.dropdown-item(href="/perfilUsuario") Perfil
+              a.dropdown-item(href="/listaAnimes") Lista de Animes Favoritos
+              a.dropdown-item(href="/listaMangas") Lista de Mangás Favoritos
+        form.form-inline.my-2.my-lg-0
+          input.form-control.mr-sm-2(type="search" placeholder="Pesquisar" aria-label="Pesquisar")
+          button.btn.btn-outline-success.my-2.my-sm-0(type="submit") Pesquisar
+
+    // Novo container para listas de animes
+    .container.mt-5
+      .row
+        // Container para "Animes mais populares"
+        .col-md-4
+          h4.text-center Animes mais populares
+          .anime-container.bg-light.p-3
+            ul#popular-animes.list-group
+              // Aqui a API deve preencher os dados dinamicamente
+              li.list-group-item= "Carregando..."
+
+        // Container para "Top Animes Exibidos Atualmente"
+        .col-md-4
+          h4.text-center Top Animes Exibidos
+          .anime-container.bg-light.p-3
+            ul#top-current-animes.list-group
+              // Aqui a API deve preencher os dados dinamicamente
+              li.list-group-item= "Carregando..."
+
+        // Container para "Animes mais esperados"
+        .col-md-4
+          h4.text-center Animes mais esperados
+          .anime-container.bg-light.p-3
+            ul#upcoming-animes.list-group
+              // Aqui a API deve preencher os dados dinamicamente
+              li.list-group-item= "Carregando..."
+
+      // Novo container para listas de mangás
+    .container.mt-5
+      .row
+        .col-md-4
+          h4.text-center Mangás mais populares
+          .anime-container.bg-light.p-3
+            ul#popular-animes.list-group
+              // Aqui a API deve preencher os dados dinamicamente
+              li.list-group-item= "Carregando..."
+
+        // Container para "Top Animes Exibidos Atualmente"
+        .col-md-4
+          h4.text-center Top Ligh Novels
+          .anime-container.bg-light.p-3
+            ul#top-current-animes.list-group
+              // Aqui a API deve preencher os dados dinamicamente
+              li.list-group-item= "Carregando..."
+
+        // Container para "Animes mais esperados"
+        .col-md-4
+          h4.text-center Top Novels
+          .anime-container.bg-light.p-3
+            ul#upcoming-animes.list-group
+              // Aqui a API deve preencher os dados dinamicamente
+              li.list-group-item= "Carregando..."
+
+    // Incluindo o JavaScript do Bootstrap
+    script(src="https://code.jquery.com/jquery-3.5.1.slim.min.js")
+    script(src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js")
+    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js")

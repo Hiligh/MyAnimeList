@@ -1,0 +1,279 @@
+@import url('variables.css');
+
+body {
+  min-height: 100vh; /* Garante que o body ocupe no mínimo 100% da altura da viewport */
+  margin: 0; /* Remove margens padrão */
+  display: flex; /* Flex para centralizar verticalmente, se necessário */
+  flex-direction: column; /* Layout em coluna */
+  background: var(--color1);
+  background: -moz-linear-gradient(top, var(--color5) 0%, var(--color3) 50%, var(--color1) 100%);
+  background: -webkit-linear-gradient(top, var(--color5) 0%, var(--color3) 50%, var(--color1) 100%);
+  background: linear-gradient(to bottom, var(--color5) 0%, var(--color3) 50%, var(--color1) 100%);
+}
+
+/* Container principal dos mangás */
+#manga-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Colunas responsivas */
+  gap: 20px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 20px auto; /* Margem superior e centralização */
+  background-color: var(--color4); /* Fundo branco com leve tom do tema */
+  border-radius: 10px; /* Bordas arredondadas para o container */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombras suaves no container */
+}
+
+/* Estilo dos itens de mangá */
+.manga-item {
+  color: #ffffff;
+  font-size: 1.2rem;
+  border: 1px solid var(--color3);
+  padding: 15px;
+  background-color: var(--color3);
+  text-align: center;
+  border-radius: 8px; /* Bordas arredondadas para os itens */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Sombras para os itens */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Efeito de transição para hover */
+}
+
+.manga-item:hover {
+  transform: translateY(-5px); /* Eleva o item ao passar o mouse */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Sombras mais intensas no hover */
+}
+
+.manga-item img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px; /* Bordas arredondadas para as imagens */
+  margin-bottom: 10px;
+}
+
+/* Títulos dos mangás */
+.manga-item h2 {
+  font-size: 1.2rem;
+  margin: 10px 0;
+  font-weight: bold;
+  color: var(--color2); /* Cor adaptada do tema */
+}
+
+/* Botão "Ver Mais" */
+#ver-mais {
+  display: inline-block;
+  margin: 20px auto;
+  padding: 12px 20px;
+  background-color: var(--color5);
+  color: var(--color-btn-font);
+  font-weight: bolder;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-align: center;
+}
+
+#ver-mais:hover {
+  background-color: var(--color2); /* Fundo mais claro ao hover */
+}
+
+#ver-mais:focus {
+  outline: none;
+}
+
+#ver-mais:active {
+  background-color: var(--color3); /* Fundo escuro ao clicar */
+}
+
+/* Títulos principais com animação de hover */
+h2 {
+  color: #ffffff;
+  text-align: center;
+  font-size: 1.5rem;
+  transition: transform 0.3s ease, background-position 0.3s ease;
+}
+
+h2:hover {
+  transform: scale(1.2);
+  animation: horizontal-palette-scroll 3s infinite linear;
+  color: transparent;
+  background-image: linear-gradient(to right,
+      var(--color1),
+      var(--color2),
+      var(--color5),
+      var(--color6)
+  );
+  background-size: 300% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+/* Animação do gradiente horizontal */
+@keyframes horizontal-palette-scroll {
+  0% {
+      background-position: 0% 0%;
+  }
+  100% {
+      background-position: 100% 0%;
+  }
+}
+
+#search-results-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  max-height: 250px;
+  overflow-y: auto;
+  z-index: 1000;
+  background-color: #fff;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  padding: 10px 0; /* Espaço ao redor dos itens */
+  display: none; /* Oculto inicialmente */
+}
+
+#search-results-dropdown.show {
+  display: block; /* Mostra apenas quando a classe 'show' é aplicada */
+}
+
+/* Estilo para os cabeçalhos de seção (Animes e Mangás) */
+#search-results-dropdown .dropdown-header {
+  font-size: 14px;
+  font-weight: bold;
+  color: #007bff; /* Cor de destaque */
+  padding: 8px 20px;
+  text-transform: uppercase;
+  background-color: #f8f9fa;
+  border-top: 1px solid #e9ecef;
+  border-bottom: 1px solid #e9ecef;
+  margin: 0;
+}
+
+#search-results-dropdown .dropdown-item {
+  padding: 12px 20px;
+  color: #333;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #e9ecef;
+}
+
+#search-results-dropdown .dropdown-item:hover {
+  background-color: #f1f4f8;
+  color: #007bff;
+}
+
+/* Ícones ao lado dos itens para uma aparência mais moderna (se desejar usar) */
+#search-results-dropdown .dropdown-item::before {
+  content: "🔍"; /* Ícone de lupa, como exemplo */
+  margin-right: 8px;
+  color: #007bff;
+}
+
+/* Estilo para os itens sem resultados */
+#search-results-dropdown .no-results {
+  padding: 12px 20px;
+  color: #999;
+  text-align: center;
+  font-size: 15px;
+  font-style: italic;
+}
+
+/* Scrollbar estilizado para o dropdown */
+#search-results-dropdown::-webkit-scrollbar {
+  width: 8px;
+}
+
+#search-results-dropdown::-webkit-scrollbar-thumb {
+  background-color: #d0d0d0;
+  border-radius: 4px;
+}
+
+#search-results-dropdown::-webkit-scrollbar-thumb:hover {
+  background-color: #b0b0b0;
+}
+
+/* Navegação e links */
+.nav-link {
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.nav-link:hover {
+  color: var(--color6) !important;
+  transform: scale(1.1); /* Aumenta o tamanho da letra em 10% */
+}
+
+.dropdown-item {
+  transition: color 0.3s ease;
+}
+
+.dropdown-item:hover {
+  color: var(--color6) !important;
+}
+
+.navbar-brand{
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.navbar-brand:hover {
+  color: var(--color6) !important;
+  transform: scale(1.1);
+}
+
+.button {
+  position: relative;
+  width: 120px;
+  height: 40px;
+  background-color: #000;
+  display: flex;
+  align-items: center;
+  color: white;
+  flex-direction: column;
+  justify-content: center;
+  border: none;
+  padding: 12px;
+  gap: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  left: -4px;
+  top: -1px;
+  margin: auto;
+  width: 128px;
+  height: 48px;
+  border-radius: 10px;
+  background: linear-gradient(-45deg, var(--color1) 0%, var(--color5) 100%);
+  z-index: -10;
+  pointer-events: none;
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.button::after {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(-45deg, var(--color1) 0%, var(--color5) 100%);
+  transform: translate3d(0, 0, 0) scale(0.95);
+  filter: blur(20px);
+}
+
+.button:hover::after {
+  filter: blur(30px);
+}
+
+.button:hover::before {
+  transform: rotate(-180deg);
+}
+
+.button:active::before {
+  scale: 0.7;
+}

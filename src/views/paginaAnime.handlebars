@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{detalhesAnime.Nome}}</title>
+    <link rel="stylesheet" href="/css/paginaAnime.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body data-idanime="{{detalhesAnime.IDAnime}}" data-idusuario="{{infoUsuario.IDUsuario}}">
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/paginaPrincipal">MiruYomuHub</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarContent">
+            <ul class="navbar-nav mr-auto ml-auto">
+                <li class="nav-item"><a class="nav-link" href="/catalogoAnimes">Catálogo Animes</a></li>
+                <li class="nav-item"><a class="nav-link" href="/catalogoMangas">Catálogo Mangás</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {{infoUsuario.Nome}}
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/perfilUsuario">Perfil</a>
+                        <a class="dropdown-item" href="#" id="linkListasAnimes">Listas Animes</a>
+                        <a class="dropdown-item" href="#" id="linkListasMangas">Listas Mangás</a>
+                    </div>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input id="search-item" class="form-control mr-sm-2" type="search" placeholder="Pesquisar" aria-label="Pesquisar">
+                <button id="search-button" class="btn btn-outline-success my-2 my-sm-0" type="button">Pesquisar</button>
+            </form>
+            <ul id="search-results-dropdown" class="dropdown-menu" style="position: absolute;"></ul>
+        </div>
+    </nav>
+
+    <!-- Modal para selecionar a lista -->
+    <div class="modal fade" id="selectListModal" tabindex="-1" role="dialog" aria-labelledby="selectListModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="selectListModalLabel">Selecione uma Lista</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div id="listasDisponiveis"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Anime Details Page -->
+    <main class="my-4">
+        <div class="container ml-5">
+            <div class="row">
+                <!-- Cover Image and Basic Info -->
+                <div class="col-md-4 mt-5">
+                    <div class="anime-info mt-3">
+                        <img src="../assets/default-cover-4.jpg" alt="{{detalhesAnime.Nome}}" class="anime-cover mb-3">
+                        <div class="anime-stats">
+                            <p><strong>Nota:</strong> {{mediaNota}}</p> <!-- Exibindo a nota média aqui -->
+                            <p><strong>Favoritos:</strong> {{detalhesAnime.Membros}}</p>
+                        </div>
+                        <div class="anime-actions mt-3">
+                            <button id="adicionar-lista" class="btn btn-custom" data-toggle="modal" data-target="#selectListModal">Adicionar na Lista</button>
+                            <button id="favoritar-anime" class="btn btn-custom">Favoritar Anime</button>
+                            <button id="avaliar-anime" class="btn btn-custom">Avaliar Anime</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Detailed Info Section -->
+                <div class="col-md-8">
+                    <h2 class="mb-4 text-center">{{detalhesAnime.Nome}}</h2>
+                    <div class="anime-details">
+                        <div class="row div-informacoes">
+                            <!-- Primeira coluna com 8 elementos -->
+                            <div class="col-md-6">
+                                <div class="anime-detail-item">
+                                    <strong>Status:</strong> {{detalhesAnime.Status}}
+                                </div>
+                                <div class="anime-detail-item">
+                                    <strong>Licenciadores:</strong> {{detalhesAnime.Licensors}}
+                                </div>
+                                <div class="anime-detail-item">
+                                    <strong>Produtores:</strong> {{detalhesAnime.Producers}}
+                                </div>
+                                <div class="anime-detail-item">
+                                    <strong>Studios:</strong> {{detalhesAnime.Studios}}
+                                </div>
+                                <div class="anime-detail-item">
+                                    <strong>Origem:</strong> {{detalhesAnime.Source}}
+                                </div>
+                                <div class="anime-detail-item">
+                                    <strong>Data de Lançamento:</strong> {{detalhesAnime.Start_Aired}}
+                                </div>
+                                <div class="anime-detail-item">
+                                    <strong>Data de Encerramento:</strong> {{detalhesAnime.End_Aired}}
+                                </div>
+                                <div class="anime-detail-item">
+                                    <strong>Tipo:</strong> {{detalhesAnime.Tipo}}
+                                </div>
+                            </div>
+
+                            <!-- Segunda coluna com 7 elementos -->
+                            <div class="col-md-6">
+                                <div class="anime-detail-item">
+                                    <strong>Gêneros:</strong> {{detalhesAnime.Genero}}
+                                </div>
+                                <div class="anime-detail-item">
+                                    <strong>Episódios:</strong> {{detalhesAnime.Episodios}}
+                                </div>
+                                <div class="anime-detail-item">
+                                    <strong>Duração (min):</strong> {{detalhesAnime.Duration_Minutes}}
+                                </div>
+                                <div class="anime-detail-item">
+                                    <strong>Fonte:</strong> {{detalhesAnime.Source}}
+                                </div>
+                                <div class="anime-detail-item">
+                                    <strong>Temas:</strong> {{detalhesAnime.Themes}}
+                                </div>
+                                <div class="anime-detail-item">
+                                    <strong>Demografia:</strong> {{detalhesAnime.Demographics}}
+                                </div>
+                                <div class="anime-detail-item">
+                                    <strong>Classificação:</strong> {{detalhesAnime.Rating}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Pop-up para o usuário digitar a nota -->
+    <div id="pop-up-avaliacao" style="display: none;">
+        <div class="popup-content">
+            <h3>Avaliar Anime</h3>
+            <label for="nota">Digite sua nota (0 a 5):</label>
+            <input type="number" id="nota" min="0" max="5" step="1" placeholder="Nota de 0 a 5">
+            <button id="submit-avaliacao">Enviar Avaliação</button>
+            <button id="cancelar-avaliacao">Cancelar</button>
+        </div>
+    </div>
+
+    <script src="/js/paginaAnime.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

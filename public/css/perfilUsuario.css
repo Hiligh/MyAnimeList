@@ -1,76 +1,257 @@
 /* Configurações gerais */
 body {
-    background-color: #d3d3d3;
-    font-family: Arial, sans-serif;
-  }
-  
-  /* Estilização da sidebar */
-  .sidebar {
-    background-color: #c4c4c4;
-    height: 100vh;
-    padding: 20px;
-  }
-  
-  .sidebar ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .sidebar ul li {
-    margin: 20px 0;
-  }
-  
-  .sidebar ul li a {
-    color: black;
-    text-decoration: none;
-    font-weight: bold;
-  }
-  
-  #usernameBtn {
-    background-color: #e0e0e0;
-    border: none;
-    border-radius: 5px;
-    padding: 10px;
-    font-size: 1.2rem;
-    width: 100%;
-    text-align: center;
-  }
-  
-  /* Estilização da imagem do usuário */
-  .user-img {
-    width: 200px;
-    height: 200px;
-    margin: center;
-  }
-  
-  /* Estilização dos contadores */
-  h2 {
-    font-size: 3rem;
-    font-weight: bold;
-    margin: 0;
-  }
-  
-  h5 {
-    font-size: 1.2rem;
-    font-weight: normal;
-  }
-  
-  /* Estilização dos botões */
-  .btn-group .btn {
-    margin: 10px;
-    width: 150px;
-  }
-  
-  .btn-danger {
-    background-color: #ff5c5c;
-  }
-
-#divSuperior{
-    background-color: #ffffff;
-    color: black;
+  background-color: #f5f5f5;
+  font-family: Arial, sans-serif;
 }
 
-#divInferior{
-    background-color: #ffffff;
+/* Estilização da sidebar */
+.sidebar {
+  background-color: #3c3c3c;
+  height: 100vh;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  color: white;
 }
-  
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin: 15px 0;
+}
+
+.sidebar ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.sidebar ul li a:hover {
+  color: #e0e0e0;
+}
+
+#usernameBtn {
+  background-color: #6d6d6d;
+  border: none;
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 1.3rem;
+  width: 100%;
+  text-align: center;
+  color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilização da imagem do usuário */
+.user-img {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Ajuste da área principal (Main Content) */
+.container .row > .col-md-9 {
+  padding-left: 40px; /* Aumenta o espaço entre o conteúdo principal e a sidebar */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Div Superior */
+#divSuperior {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 25px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 30px;
+  max-width: 100%; /* Ajusta a largura para ser um pouco maior */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Div Inferior */
+#divInferior {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 25px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  max-width: 100%; /* Ajusta a largura para ser um pouco maior */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Estilização dos botões */
+button.btn {
+  border-radius: 8px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+button.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+button.btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
+
+button.btn-secondary {
+  background-color: #6c757d;
+  border-color: #6c757d;
+}
+
+button.btn-secondary:hover {
+  background-color: #5a6268;
+  border-color: #5a6268;
+}
+
+button.btn-danger {
+  background-color: #ff4d4d;
+  border-color: #ff4d4d;
+}
+
+button.btn-danger:hover {
+  background-color: #cc0000;
+  border-color: #cc0000;
+}
+
+/* Ajuste de largura e sombra para os botões */
+button.btn-block {
+  width: 80%;
+  max-width: 250px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+  margin: 10px 0;
+}
+
+
+/* Estilo de botão ajustado */
+.btn-31 {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-appearance: button;
+  background-color: #000;
+  background-image: none;
+  color: #fff;
+  cursor: pointer;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif,
+    Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+  font-size: 0.9rem;  /* Diminuído o tamanho da fonte */
+  font-weight: 900;
+  line-height: 1.5;
+  margin: 0;
+  -webkit-mask-image: -webkit-radial-gradient(#000, #fff);
+  padding: 0.8rem 1.8rem; /* Diminuído o padding */
+}
+
+.btn-31:disabled {
+  cursor: default;
+}
+
+.btn-31:-moz-focusring {
+  outline: auto;
+}
+
+.btn-31 svg {
+  display: block;
+  vertical-align: middle;
+}
+
+.btn-31 [hidden] {
+  display: none;
+}
+
+.btn-31 {
+  border-width: 1px;
+  padding: 0.8rem 1.8rem; /* Ajuste de padding */
+  position: relative;
+  text-transform: uppercase;
+}
+
+.btn-31:before {
+  --progress: 100%;
+  background: #fff;
+  -webkit-clip-path: polygon(
+    100% 0,
+    var(--progress) var(--progress),
+    0 100%,
+    100% 100%
+  );
+  clip-path: polygon(
+    100% 0,
+    var(--progress) var(--progress),
+    0 100%,
+    100% 100%
+  );
+  content: "";
+  inset: 0;
+  position: absolute;
+  transition: -webkit-clip-path 0.2s ease;
+  transition: clip-path 0.2s ease;
+  transition: clip-path 0.2s ease, -webkit-clip-path 0.2s ease;
+}
+
+.btn-31:hover:before {
+  --progress: 0%;
+}
+
+.btn-31 .text-container {
+  display: block;
+  overflow: hidden;
+  position: relative;
+}
+
+.btn-31 .text {
+  display: block;
+  font-weight: 900;
+  mix-blend-mode: difference;
+  position: relative;
+}
+
+.btn-31:hover .text {
+  -webkit-animation: move-up-alternate 0.3s ease forwards;
+  animation: move-up-alternate 0.3s ease forwards;
+}
+
+@-webkit-keyframes move-up-alternate {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(80%);
+  }
+
+  51% {
+    transform: translateY(-80%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes move-up-alternate {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(80%);
+  }
+
+  51% {
+    transform: translateY(-80%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+

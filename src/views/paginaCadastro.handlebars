@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página de Cadastro</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/paginaCadastro.css">
+</head>
+<body>
+
+  <!-- Container Principal -->
+  <div class="container d-flex justify-content-center align-items-center">
+    <div class="row">
+      <div class="col-md-6 animate-card">
+        
+        <!-- Card de Cadastro -->
+        <div class="card">
+          <div class="card-body">
+            <h3 class="text-center mb-4">Cadastro</h3>
+            <form class="labels-card" action="/paginaCadastro" method="POST">
+              <div class="form-group">
+                <label for="name">Nome</label>
+                <input id="name" class="form-control" type="text" name="nome" placeholder="Insira seu nome" required>
+              </div>
+              <div class="form-group">
+                <label for="age">Idade</label>
+                <input id="age" class="form-control" type="date" name="idade" placeholder="Insira sua idade" required>
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input id="email" class="form-control" type="email" name="email" placeholder="Insira seu email" required>
+              </div>
+              <div class="form-group">
+                <label for="password">Senha</label>
+                <input id="password" class="form-control" type="password" name="senha" placeholder="Insira sua senha" required>
+              </div>
+              <div class="form-group">
+                <label for="confirm-password">Confirme sua Senha</label>
+                <input id="confirm-password" class="form-control" type="password" name="confirm_password" placeholder="Confirme sua senha" required>
+              </div>
+              <div class="form-group text-center">
+                <div class="button-container">
+                  <button type="submit" class="btn btn-block">
+                    <span>Cadastrar-se</span>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Incluindo o JavaScript do Bootstrap -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  
+</body>
+</html>

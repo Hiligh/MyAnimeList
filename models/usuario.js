@@ -10,6 +10,8 @@ const Usuario = sequelize.define('Usuario', {
   Nome: {
     type: DataTypes.STRING(30),
     allowNull: false,
+    // Não criar um índice automático
+    indexes: []
   },
   Idade: {
     type: DataTypes.DATE,
@@ -18,15 +20,17 @@ const Usuario = sequelize.define('Usuario', {
   Email: {
     type: DataTypes.STRING(35),
     allowNull: false,
-    unique: true, // Garante que não haja emails duplicados
+    unique: true, // Garante que o email seja único, criando um índice
   },
   Senha: {
     type: DataTypes.STRING(60),
     allowNull: false,
   }
 }, {
-  tableName: 'usuario', // Nome da tabela no banco de dados
-  timestamps: false,    // Desabilita a criação automática de colunas de timestamps como `createdAt` e `updatedAt`
+  tableName: 'usuario',
+  timestamps: false,
+  // Aqui, você pode desabilitar a criação de índices automáticos
+  indexes: [] // Remove qualquer índice automático
 });
 
 module.exports = Usuario;

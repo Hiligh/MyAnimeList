@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MiruYumo - Página Principal</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/paginaPrincipal.css">
+</head>
+<body data-idusuario="{{infoUsuario.IDUsuario}}">
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/paginaPrincipal">MiruYomuHub</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
+      <ul class="navbar-nav mr-auto ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/catalogoAnimes">Catálogo Animes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/catalogoMangas">Catálogo Mangás</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            {{infoUsuario.Nome}}
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/perfilUsuario">Perfil</a>
+            <a class="dropdown-item" href="#" id="linkListasAnimes">Listas Animes</a>
+            <a class="dropdown-item" href="#" id="linkListasMangas">Listas Mangás</a>
+          </div>
+        </li>
+      </ul>
+      <!-- Ajuste na Navbar -->
+      <form class="form-inline my-2 my-lg-0">
+          <input id="search-item" class="form-control mr-sm-2" type="search" placeholder="Pesquisar" aria-label="Pesquisar">
+          <button id="search-button" class="btn btn-outline-success my-2 my-sm-0" type="button">Pesquisar</button>
+      </form>
+      <ul id="search-results-dropdown" class="dropdown-menu" style="position: absolute;">
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Containers de Animes e Mangás -->
+  <div class="container mt-5">
+    <div class="row">
+      
+      <!-- Animes mais populares -->
+      <div class="col-md-4">
+        <h4 class="text-center">Animes mais populares</h4>
+        <div class="anime-container bg-light p-3">
+          <ul id="popular-animes" class="list-group">
+            <li class="list-group-item">Carregando...</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <h4 class="text-center">Animes Mais Bem Avaliados</h4>
+        <div class="anime-container bg-light p-3">
+          <ul id="top-rated-animes" class="list-group">
+            <li class="list-group-item">Carregando...</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Animes Recentes -->
+      <div class="col-md-4">
+        <h4 class="text-center">Animes Recentes</h4>
+        <div class="anime-container bg-light p-3">
+          <ul id="recent-animes" class="list-group"></ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Containers de Mangás e Light Novels -->
+  <div class="container mt-5">
+    <div class="row">
+      
+      <!-- Mangás mais populares -->
+      <div class="col-md-4">
+        <h4 class="text-center">Mangás mais populares</h4>
+        <div class="anime-container bg-light p-3">
+          <ul id="popular-mangas" class="list-group">
+            <li class="list-group-item">Carregando...</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Mangás mais bem avaliados -->
+      <div class="col-md-4">
+        <h4 class="text-center">Mangás mais bem avaliados</h4>
+        <div class="anime-container bg-light p-3">
+          <ul id="top-rated-mangas" class="list-group">
+            <li class="list-group-item">Carregando...</li>
+          </ul>
+        </div>
+      </div>
+
+
+      <!-- Mangás Recentes -->
+      <div class="col-md-4">
+        <h4 class="text-center">Mangás Recentes</h4>
+        <div class="anime-container bg-light p-3">
+          <ul id="recent-mangas" class="list-group"></ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="/js/paginaPrincipal.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

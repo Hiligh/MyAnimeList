@@ -1,0 +1,168 @@
+@import url('variables.css');
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    background: var(--color1);
+    background: -moz-linear-gradient(top, var(--color1) 0%, var(--color3) 50%, var(--color5) 100%);
+    background: -webkit-linear-gradient(top, var(--color1) 0%, var(--color3) 50%, var(--color5) 100%);
+    background: linear-gradient(to bottom, var(--color1) 0%, var(--color3) 50%, var(--color5) 100%);
+}
+
+
+#search-results-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    max-height: 250px;
+    overflow-y: auto;
+    z-index: 1000;
+    background-color: #fff;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    padding: 10px 0;
+    display: none;
+}
+
+#search-results-dropdown.show {
+    display: block;
+}
+
+/* Estilo para os cabeçalhos de seção (Animes e Mangás) */
+#search-results-dropdown .dropdown-header {
+    font-size: 14px;
+    font-weight: bold;
+    color: #007bff;
+    padding: 8px 20px;
+    text-transform: uppercase;
+    background-color: #f8f9fa;
+    border-top: 1px solid #e9ecef;
+    border-bottom: 1px solid #e9ecef;
+    margin: 0;
+}
+
+#search-results-dropdown .dropdown-item {
+    padding: 12px 20px;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #e9ecef;
+}
+
+#search-results-dropdown .dropdown-item:hover {
+    background-color: #f1f4f8;
+    color: #007bff;
+}
+
+/* Ícones ao lado dos itens para uma aparência mais moderna (se desejar usar) */
+#search-results-dropdown .dropdown-item::before {
+    content: "🔍";
+    margin-right: 8px;
+    color: #007bff;
+}
+
+/* Estilo para os itens sem resultados */
+#search-results-dropdown .no-results {
+    padding: 12px 20px;
+    color: #999;
+    text-align: center;
+    font-size: 15px;
+    font-style: italic;
+}
+
+/* Scrollbar estilizado para o dropdown */
+#search-results-dropdown::-webkit-scrollbar {
+    width: 8px;
+}
+
+#search-results-dropdown::-webkit-scrollbar-thumb {
+    background-color: #d0d0d0;
+    border-radius: 4px;
+}
+
+#search-results-dropdown::-webkit-scrollbar-thumb:hover {
+    background-color: #b0b0b0;
+}
+
+.anime-container {
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+    padding: 10px;
+}
+
+.anime-container .list-group-item {
+    border-radius: 8px;
+    transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
+}
+
+.anime-container .list-group-item:hover {
+    transform: translateY(-3px);
+    background-color: #f8f9fa;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+h4 {
+    color: #ffffff;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+h4:hover {
+    transform: scale(1.2);
+    animation: horizontal-palette-scroll 3s infinite linear;
+    color: transparent;
+    background-image: linear-gradient(to right, 
+        var(--color1), 
+        var(--color3),  
+        var(--color5), 
+        var(--color6)
+    );
+    background-size: 300% 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    transition: transform 0.3s ease, background-position 0.3s ease;
+}
+
+/* Animação do gradiente horizontal */
+@keyframes horizontal-palette-scroll {
+    0% {
+        background-position: 0% 0%;
+    }
+    100% {
+        background-position: 100% 0%;
+    }
+}
+
+.nav-link {
+    transition: color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .nav-link:hover {
+    color: var(--color6) !important;
+    transform: scale(1.1);
+  }
+  
+  .dropdown-item {
+    transition: color 0.3s ease
+  }
+  
+  .dropdown-item:hover {
+    color: var(--color6) !important;
+  }
+  
+  .navbar-brand{
+    transition: color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .navbar-brand:hover {
+    color: var(--color6) !important;
+    transform: scale(1.1);
+  }

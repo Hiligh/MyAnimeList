@@ -1,0 +1,25 @@
+{
+  "name": "myanimelist",
+  "version": "1.0.0",
+  "description": "Cópia do MyAnimeList",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "author": "Breno",
+  "license": "ISC",
+  "dependencies": {
+    "@handlebars/allow-prototype-access": "^1.0.5",
+    "axios": "^1.7.7",
+    "bcrypt": "^5.1.1",
+    "bootstrap": "^5.3.3",
+    "csv-parser": "^3.0.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-handlebars": "^8.0.1",
+    "express-session": "^1.18.0",
+    "mysql2": "^3.11.2",
+    "pug": "^3.0.3",
+    "sequelize": "^6.37.5"
+  }
+}

@@ -1,0 +1,502 @@
+@import url('variables.css');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh; /* Garante que o body ocupe no mínimo 100% da altura da viewport */
+  margin: 0; /* Remove qualquer margem padrão do body */
+  display: flex; /* Para permitir que o conteúdo centralize verticalmente, se necessário */
+  flex-direction: column; /* Permite um layout em coluna */
+  background: var(--color1);
+  background: -moz-linear-gradient(top, var(--color1) 0%, var(--color3) 50%, var(--color5) 100%);
+  background: -webkit-linear-gradient(top, var(--color1) 0%, var(--color3) 50%, var(--color5) 100%);
+  background: linear-gradient(to bottom, var(--color1) 0%, var(--color3) 50%, var(--color5) 100%);
+}
+
+/* Cabeçalho */
+header {
+  background-color: #2c3e50;
+  padding: 20px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+  font-size: 28px;
+  margin: 0;
+}
+
+header nav a {
+  color: white;
+  margin-left: 20px;
+  text-decoration: none;
+  font-size: 18px;
+  transition: color 0.3s ease;
+}
+
+header nav a:hover {
+  color: #3498db;
+}
+
+/* Container principal */
+.container {
+  display: flex;
+  max-width: 1200px;
+  margin: 40px auto;
+  background-color: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  justify-content: space-between;
+}
+
+/* Informações do mangá */
+.manga-info {
+  width: 77% !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-right: 30px;
+  position: relative;
+}
+
+.manga-info img {
+  width: 100%;
+  max-width: 280px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
+}
+
+/* Estatísticas do Mangá */
+.manga-stats {
+  background-color: #ecf0f1;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  font-size: 18px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+.manga-stats p {
+  margin-bottom: 15px;
+}
+
+/* Detalhes do Mangá */
+.manga-details {
+  width: 60%;
+}
+
+.manga-details h2 {
+  font-size: 32px;
+  color: #34495e;
+  margin-bottom: 20px;
+}
+
+.manga-details h3 {
+  font-size: 24px;
+  color: #2c3e50;
+  margin-top: 30px;
+}
+
+.manga-details p {
+  font-size: 18px;
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+/* Caixa de informações */
+.manga-details .info-box {
+  background-color: #3498db;
+  padding: 20px;
+  border-radius: 12px;
+  color: white;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.manga-details .info-box p {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+/* Estilo responsivo */
+@media (max-width: 768px) {
+  .container {
+      flex-direction: column;
+      padding: 15px;
+  }
+
+  .manga-info {
+      width: 100%;
+      margin-bottom: 30px;
+  }
+
+  .manga-details {
+      width: 100%;
+  }
+  
+  header h1 {
+      font-size: 22px;
+  }
+
+  header nav a {
+      font-size: 16px;
+  }
+
+  .manga-details h2 {
+      font-size: 28px;
+  }
+
+  .manga-details h3 {
+      font-size: 20px;
+  }
+
+  .manga-details p {
+      font-size: 16px;
+  }
+}
+
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #343a40;
+  padding: 15px 0;
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+.nav-link {
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.nav-link:hover {
+  color: var(--color6) !important;
+  transform: scale(1.1);
+}
+
+.dropdown-item {
+  transition: color 0.3s ease
+}
+
+.dropdown-item:hover {
+  color: var(--color6) !important;
+}
+
+.navbar-brand{
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.navbar-brand:hover {
+  color: var(--color6) !important;
+  transform: scale(1.1);
+}
+
+/* Formulário de Pesquisa */
+.form-inline {
+  display: flex;
+  align-items: center;
+}
+
+#search-manga {
+  border-radius: 20px;
+  width: 200px;
+}
+
+#search-button {
+  border-radius: 20px;
+  margin-left: 10px;
+}
+
+#search-results-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  max-height: 250px;
+  overflow-y: auto;
+  z-index: 1000;
+  background-color: #fff;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  padding: 10px 0;
+  display: none;
+}
+
+#search-results-dropdown.show {
+  display: block;
+}
+
+/* Estilo para os cabeçalhos de seção (Animes e Mangás) */
+#search-results-dropdown .dropdown-header {
+  font-size: 14px;
+  font-weight: bold;
+  color: #007bff;
+  padding: 8px 20px;
+  text-transform: uppercase;
+  background-color: #f8f9fa;
+  border-top: 1px solid #e9ecef;
+  border-bottom: 1px solid #e9ecef;
+  margin: 0;
+}
+
+#search-results-dropdown .dropdown-item {
+  padding: 12px 20px;
+  color: #333;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #e9ecef;
+}
+
+#search-results-dropdown .dropdown-item:hover {
+  background-color: #f1f4f8;
+  color: #007bff;
+}
+
+/* Ícones ao lado dos itens para uma aparência mais moderna (se desejar usar) */
+#search-results-dropdown .dropdown-item::before {
+  content: "🔍";
+  margin-right: 8px;
+  color: #007bff;
+}
+
+/* Estilo para os itens sem resultados */
+#search-results-dropdown .no-results {
+  padding: 12px 20px;
+  color: #999;
+  text-align: center;
+  font-size: 15px;
+  font-style: italic;
+}
+
+/* Scrollbar estilizado para o dropdown */
+#search-results-dropdown::-webkit-scrollbar {
+  width: 8px;
+}
+
+#search-results-dropdown::-webkit-scrollbar-thumb {
+  background-color: #d0d0d0;
+  border-radius: 4px;
+}
+
+#search-results-dropdown::-webkit-scrollbar-thumb:hover {
+  background-color: #b0b0b0;
+}
+
+.manga-cover {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.manga-info, .manga-details {
+  padding: 45px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 70%;
+  height: 100%;
+}
+.genre-pill {
+  background-color: #007bff;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 15px;
+  margin: 5px;
+  font-size: 0.9em;
+}
+.manga-stats {
+  font-size: 1.1em;
+  color: #6c757d;
+}
+
+/* Botão Adicionar na Lista */
+#adicionar-lista {
+  background-color: #28a745;
+  color: white;
+  border-radius: 25px;
+  padding: 10px 25px;
+  font-size: 1rem;
+  width: 100%;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#adicionar-lista:hover {
+  background-color: #218838;
+  color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Botão Avaliar Anime */
+#avaliar-anime {
+  background-color: #007bff;
+  color: white;
+  border-radius: 25px;
+  padding: 10px 25px;
+  font-size: 1rem;
+  width: 100%;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#avaliar-anime:hover {
+  background-color: #0056b3;
+  color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Botão Favoritar Anime */
+#favoritar-anime {
+  background-color: #ffcc00;
+  color: white;
+  border-radius: 25px;
+  padding: 10px 25px;
+  font-size: 1rem;
+  width: 100%;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#favoritar-anime:hover {
+  background-color: #f39c12;
+  color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-custom {
+  --width: 150px;
+  --timing: 2s;
+  border: 0;
+  width: var(--width);
+  padding-block: 1em;
+  color: #fff;
+  font-weight: bolder;
+  font-size: 1.2em;
+  background: rgb(64, 192, 87);
+  transition: all 0.2s;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.btn-custom:hover {
+  background-image: linear-gradient(
+    to right,
+    rgb(250, 82, 82),
+    rgb(250, 82, 82) 16.65%,
+    rgb(190, 75, 219) 16.65%,
+    rgb(190, 75, 219) 33.3%,
+    rgb(76, 110, 245) 33.3%,
+    rgb(76, 110, 245) 49.95%,
+    rgb(64, 192, 87) 49.95%,
+    rgb(64, 192, 87) 66.6%,
+    rgb(250, 176, 5) 66.6%,
+    rgb(250, 176, 5) 83.25%,
+    rgb(253, 126, 20) 83.25%,
+    rgb(253, 126, 20) 100%,
+    rgb(250, 82, 82) 100%
+  );
+  animation: var(--timing) linear dance6123 infinite;
+  transform: scale(1.1) translateY(-1px);
+}
+
+@keyframes dance6123 {
+  to {
+    background-position: var(--width);
+  }
+}
+
+#favoritar-manga {
+  background-color: #ffcc00;
+  color: white;
+  border-radius: 25px;
+  padding: 10px 25px;
+  font-size: 1rem;
+  width: 100%;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Efeito de hover para o botão "Favoritar Anime" */
+#favoritar-manga:hover {
+  background-color: #f39c12;
+  color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Botão Adicionar na Lista */
+#adicionar-lista {
+  background-color: #28a745;
+  color: white;
+  border-radius: 25px;
+  padding: 10px 25px;
+  font-size: 1rem;
+  width: 100%;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#adicionar-lista:hover {
+  background-color: #218838;
+  color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Botão Avaliar Anime */
+#avaliar-manga {
+  background-color: #007bff;
+  color: white;
+  border-radius: 25px;
+  padding: 10px 25px;
+  font-size: 1rem;
+  width: 100%;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#avaliar-manga:hover {
+  background-color: #0056b3;
+  color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Botão Favoritar Anime */
+#favoritar-manga {
+  background-color: #ffcc00;
+  color: white;
+  border-radius: 25px;
+  padding: 10px 25px;
+  font-size: 1rem;
+  width: 100%;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#favoritar-manga:hover {
+  background-color: #f39c12;
+  color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}

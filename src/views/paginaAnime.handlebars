@@ -11,7 +11,6 @@
 
 <body data-idanime="{{detalhesAnime.IDAnime}}" data-idusuario="{{infoUsuario.IDUsuario}}">
 
-    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="/paginaPrincipal">MiruYomuHub</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -41,7 +40,6 @@
         </div>
     </nav>
 
-    <!-- Modal para selecionar a lista -->
     <div class="modal fade" id="selectListModal" tabindex="-1" role="dialog" aria-labelledby="selectListModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -61,16 +59,14 @@
         </div>
     </div>
 
-    <!-- Anime Details Page -->
     <main class="my-4">
         <div class="container ml-5">
             <div class="row">
-                <!-- Cover Image and Basic Info -->
                 <div class="col-md-4 mt-5">
                     <div class="anime-info mt-3">
                         <img src="../assets/default-cover-4.jpg" alt="{{detalhesAnime.Nome}}" class="anime-cover mb-3">
                         <div class="anime-stats">
-                            <p><strong>Nota:</strong> {{mediaNota}}</p> <!-- Exibindo a nota média aqui -->
+                            <p><strong>Nota:</strong> {{mediaNota}}</p>
                             <p><strong>Favoritos:</strong> {{detalhesAnime.Membros}}</p>
                         </div>
                         <div class="anime-actions mt-3">
@@ -81,12 +77,10 @@
                     </div>
                 </div>
 
-                <!-- Detailed Info Section -->
                 <div class="col-md-8">
                     <h2 class="mb-4 text-center">{{detalhesAnime.Nome}}</h2>
                     <div class="anime-details">
                         <div class="row div-informacoes">
-                            <!-- Primeira coluna com 8 elementos -->
                             <div class="col-md-6">
                                 <div class="anime-detail-item">
                                     <strong>Status:</strong> {{detalhesAnime.Status}}
@@ -114,7 +108,6 @@
                                 </div>
                             </div>
 
-                            <!-- Segunda coluna com 7 elementos -->
                             <div class="col-md-6">
                                 <div class="anime-detail-item">
                                     <strong>Gêneros:</strong> {{detalhesAnime.Genero}}
@@ -145,7 +138,6 @@
         </div>
     </main>
 
-    <!-- Pop-up para o usuário digitar a nota -->
     <div id="pop-up-avaliacao" style="display: none;">
         <div class="popup-content">
             <h3>Avaliar Anime</h3>

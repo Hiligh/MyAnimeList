@@ -7,14 +7,12 @@ document.addEventListener('DOMContentLoaded', function () {
       try {
           const response = await fetch(`/usuario/${IDUsuario}/listas-mangas`);
 
-          // Verifica se a resposta foi bem-sucedida (status 200-299)
           if (!response.ok) {
               throw new Error(`Erro na requisição: ${response.statusText}`);
           }
 
           const listas = await response.json();
 
-          // Limpa o container antes de adicionar novas listas
           listaContainer.innerHTML = '<h2 class="text-center">Lista de Mangás</h2>';
 
           if (listas.length > 0) {
@@ -34,11 +32,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
                   if (lista.Mangas && lista.Mangas.length > 0) {
                       lista.Mangas.forEach(manga => {
-                        // Criação de uma div para o mangá
                         const mangaDiv = document.createElement('div');
-                        mangaDiv.classList.add('manga-box'); // Classe para estilizar a div
+                        mangaDiv.classList.add('manga-box');
 
-                        // Criação do título do mangá dentro da div
                         const mangaTitle = document.createElement('div');
                         mangaTitle.classList.add('text-center', 'manga-title');
                         mangaTitle.innerHTML = `<h6>${manga.Titulo}</h6>`;
@@ -79,8 +75,8 @@ document.addEventListener('DOMContentLoaded', function () {
               const data = await response.json();
               if (response.ok) {
                   alert(data.message);
-                  $('#criarListaModal').modal('hide'); // Fecha o modal após criar a lista
-                  carregarListasMangas(); // Recarrega as listas para mostrar a nova lista criada
+                  $('#criarListaModal').modal('hide');
+                  carregarListasMangas();
               } else {
                   alert(data.message || 'Erro ao criar a lista');
               }
@@ -114,6 +110,5 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
-  // Inicializa o carregamento das listas
   carregarListasMangas();
 });

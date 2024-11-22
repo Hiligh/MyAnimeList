@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.getElementById('search-item');
     const resultsDropdown = document.getElementById('search-results-dropdown');
-    const idusuario = document.body.dataset.idusuario; // ID do usuário
+    const idusuario = document.body.dataset.idusuario;
     const mangaID = document.body.getAttribute('data-idmanga');
 
     // Funções de busca e dropdown
@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const updateDropdown = (mangas, animes) => {
-        resultsDropdown.innerHTML = ''; // Limpa o dropdown antes de popular
+        resultsDropdown.innerHTML = '';
 
         if (mangas.length > 0) {
             const mangaHeader = document.createElement('li');
@@ -49,7 +49,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 item.classList.add('dropdown-item');
                 item.textContent = manga.Titulo;
                 item.addEventListener('click', () => {
-                    // Redireciona para a página de detalhes do Mangá, incluindo o idusuario
                     window.location.href = `/manga/${manga.IDManga}?idusuario=${idusuario}`;
                 });
                 resultsDropdown.appendChild(item);
@@ -67,7 +66,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 item.classList.add('dropdown-item');
                 item.textContent = anime.Nome;
                 item.addEventListener('click', () => {
-                    // Redireciona para a página de detalhes do Anime, incluindo o idusuario
                     window.location.href = `/anime/${anime.IDAnime}?idusuario=${idusuario}`;
                 });
                 resultsDropdown.appendChild(item);
@@ -105,7 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const listasDisponiveisElement = document.getElementById('listasDisponiveis');
         if (!listasDisponiveisElement) {
             console.error("Elemento com id 'listasDisponiveis' não encontrado.");
-            return; // Saia da função caso o elemento não exista
+            return;
         }
 
         try {
@@ -117,7 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const listas = await response.json();
 
-            listasDisponiveisElement.innerHTML = ''; // Limpar conteúdo da div
+            listasDisponiveisElement.innerHTML = '';
 
             if (listas.length > 0) {
                 listas.forEach(lista => {
@@ -141,7 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const response = await fetch('/adicionar-manga', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ IDLista, IDManga: idManga }) // Utilize o idManga capturado
+                body: JSON.stringify({ IDLista, IDManga: idManga })
             });
     
             if (!response.ok) {
@@ -151,15 +149,13 @@ document.addEventListener('DOMContentLoaded', () => {
     
             const data = await response.json();
             alert('Mangá adicionado à lista com sucesso!');
-            $('#selectListModal').modal('hide'); // Fecha o modal, se aplicável
+            $('#selectListModal').modal('hide');
         } catch (error) {
             console.error('Erro ao adicionar mangá à lista:', error);
             alert(error.message || 'Erro ao adicionar mangá à lista');
         }
     }
-    
 
-    // Carregar as listas quando a página for carregada
     carregarListas();
 
 
@@ -187,10 +183,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const linkListasMangas = document.getElementById('linkListasMangas');
 
     linkListasMangas.addEventListener('click', async function(event) {
-      event.preventDefault();  // Evita o comportamento padrão do link
+      event.preventDefault();
       console.log("conseguiu vir até aqui apertando o botão")
       try {
-          // Fazendo a requisição para pegar as listas de mangas
           const response = await fetch(`/usuario/${idusuario}/listas-mangas`);
 
           if (!response.ok) {
@@ -198,16 +193,14 @@ document.addEventListener('DOMContentLoaded', () => {
           }
 
           const listasMangas = await response.json();
-          console.log(listasMangas); // Você pode checar aqui as listas de mangas
+          console.log(listasMangas);
 
-          // Redireciona para a página de listas de mangas, passando o ID do usuário
           window.location.href = `/listas-mangas?usuarioId=${idusuario}`;
       } catch (error) {
           console.error('Erro ao carregar as listas de mangas:', error);
       }
     });
 
-    // Ação ao clicar no botão "Favoritar Mangá"
     document.getElementById('favoritar-manga').addEventListener('click', async function() {
         try {
             const response = await fetch('/favoritar-manga', {
@@ -251,9 +244,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
-                    idManga: mangaID,  // ID do mangá sendo avaliado
-                    idUsuario: idusuario, // ID do usuário
-                    novaNota: nota  // Nota fornecida pelo usuário
+                    idManga: mangaID,
+                    idUsuario: idusuario,
+                    novaNota: nota
                 })
             });
 

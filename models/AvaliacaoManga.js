@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
-const Manga = require('./mangas'); // Certifique-se de que o modelo Manga está definido
-const Usuario = require('./Usuario'); // Certifique-se de que o modelo Usuario está definido
+const Manga = require('./mangas');
+const Usuario = require('./Usuario');
 
 const AvaliacaoManga = sequelize.define('AvaliacaoManga', {
   IDAvaliacao: {

@@ -39,9 +39,8 @@ const searchAnimes = async (query) => {
 
 // Função para atualizar o dropdown com os resultados da pesquisa
 const updateDropdown = (mangas, animes) => {
-    resultsDropdown.innerHTML = ''; // Limpa o dropdown antes de popular
+    resultsDropdown.innerHTML = '';
 
-    // Se houver Mangás, cria a seção "Mangás"
     if (mangas.length > 0) {
         const mangaHeader = document.createElement('li');
         mangaHeader.classList.add('dropdown-header');
@@ -53,7 +52,6 @@ const updateDropdown = (mangas, animes) => {
             item.classList.add('dropdown-item');
             item.textContent = manga.Titulo;
             item.addEventListener('click', () => {
-                // Redireciona para a página de detalhes do Mangá, incluindo o idusuario
                 window.location.href = `/manga/${manga.IDManga}?idusuario=${idusuario}`;
             });
 
@@ -61,7 +59,6 @@ const updateDropdown = (mangas, animes) => {
         });
     }
 
-    // Se houver Animes, cria a seção "Animes"
     if (animes.length > 0) {
         const animeHeader = document.createElement('li');
         animeHeader.classList.add('dropdown-header');
@@ -73,14 +70,11 @@ const updateDropdown = (mangas, animes) => {
             item.classList.add('dropdown-item');
             item.textContent = anime.Nome;
             item.addEventListener('click', () => {
-                // Redireciona para a página de detalhes do Anime, incluindo o idusuario
                 window.location.href = `/anime/${anime.IDAnime}?idusuario=${idusuario}`;
             });
             resultsDropdown.appendChild(item);
         });
     }
-
-    // Se não houver resultados, exibe uma mensagem
     if (mangas.length === 0 && animes.length === 0) {
         const noResults = document.createElement('li');
         noResults.classList.add('dropdown-item');
@@ -88,7 +82,6 @@ const updateDropdown = (mangas, animes) => {
         resultsDropdown.appendChild(noResults);
     }
 
-    // Exibe o dropdown com os resultados
     resultsDropdown.classList.add('show');
 };
 
@@ -117,18 +110,15 @@ function carregarAnimes(page = 1) {
             if (!response.ok) {
                 throw new Error('Erro ao carregar os animes');
             }
-            return response.json(); // Converte a resposta para JSON
+            return response.json();
         })
         .then(animes => {
-            // Seleciona o elemento onde os animes serão exibidos
             const container = document.getElementById('anime-container');
-            
-            // Limpa o conteúdo atual se for a primeira página
+        
             if (page === 1) {
                 container.innerHTML = '';
             }
 
-            // Loop para adicionar cada anime no HTML
             animes.forEach(anime => {
                 const animeElement = document.createElement('div');
                 animeElement.classList.add('anime-item');
@@ -143,7 +133,6 @@ function carregarAnimes(page = 1) {
                 container.appendChild(animeElement);
             });
 
-            // Exibe o botão "Ver Mais" após carregar os animes
             const botaoVerMais = document.getElementById('ver-mais');
             botaoVerMais.style.display = 'block';
         })
@@ -154,15 +143,13 @@ function carregarAnimes(page = 1) {
 
 // Função para carregar mais animes ao clicar no botão
 function carregarMaisAnimes() {
-    currentPage++; // Incrementa a página
-    carregarAnimes(currentPage); // Carrega os animes da próxima página
+    currentPage++;
+    carregarAnimes(currentPage);
 }
 
 // Chama a função para carregar a primeira página de animes assim que a página for carregada
 document.addEventListener('DOMContentLoaded', () => {
     carregarAnimes(currentPage);
-
-    // Adiciona o evento de clique no botão "Ver Mais"
     document.getElementById('ver-mais').addEventListener('click', carregarMaisAnimes);
 });
 
@@ -188,10 +175,9 @@ linkListasAnimes.addEventListener('click', async function(event) {
 const linkListasMangas = document.getElementById('linkListasMangas');
 
 linkListasMangas.addEventListener('click', async function(event) {
-    event.preventDefault();  // Evita o comportamento padrão do link
+    event.preventDefault();
     console.log("conseguiu vir até aqui apertando o botão")
     try {
-        // Fazendo a requisição para pegar as listas de mangas
         const response = await fetch(`/usuario/${idusuario}/listas-mangas`);
 
         if (!response.ok) {
@@ -199,9 +185,8 @@ linkListasMangas.addEventListener('click', async function(event) {
         }
 
         const listasMangas = await response.json();
-        console.log(listasMangas); // Você pode checar aqui as listas de mangas
+        console.log(listasMangas);
 
-        // Redireciona para a página de listas de mangas, passando o ID do usuário
         window.location.href = `/listas-mangas?usuarioId=${idusuario}`;
     } catch (error) {
         console.error('Erro ao carregar as listas de mangas:', error);

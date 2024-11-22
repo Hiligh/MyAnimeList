@@ -3,7 +3,7 @@ const { Sequelize } = require('sequelize');
 const sequelize = new Sequelize('myanimelistdb', 'root', '1234', {
   host: 'localhost',
   dialect: 'mysql',
-  // logging: false
+  logging: false
 });
 
 module.exports = sequelize;

@@ -19,9 +19,8 @@ const ListaAnime = sequelize.define('ListaAnime', {
   IDAnime: {
     type: DataTypes.INTEGER,
     allowNull: false,
-    // Supondo que existe uma tabela 'anime' com uma chave primária 'IDAnime'
     references: {
-      model: 'anime',  // Nome da tabela de animes
+      model: 'anime',
       key: 'IDAnime',
     },
   },

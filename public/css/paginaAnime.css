@@ -1,10 +1,10 @@
 @import url('variables.css');
 
 body {
-    min-height: 100vh; /* Garante que o body ocupe no mínimo 100% da altura da viewport */
-    margin: 0; /* Remove qualquer margem padrão do body */
-    display: flex; /* Para permitir que o conteúdo centralize verticalmente, se necessário */
-    flex-direction: column; /* Permite um layout em coluna */
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
     background: var(--color1);
     background: -moz-linear-gradient(top, var(--color1) 0%, var(--color3) 50%, var(--color5) 100%);
     background: -webkit-linear-gradient(top, var(--color1) 0%, var(--color3) 50%, var(--color5) 100%);
@@ -19,33 +19,33 @@ body {
 
 /* Contêiner principal */
 .container {
-    max-width: 1200px; /* Aumenta o limite da largura */
+    max-width: 1200px;
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    gap: 20px; /* Espaçamento entre as colunas */
+    gap: 20px;
 }
 
 /* Navbar */
 .navbar {
     background-color: #343a40;
-    padding: 15px 0; /* Remove padding lateral */
+    padding: 15px 0;
     margin-bottom: 30px;
-    width: 100%; /* Garante que a navbar ocupe toda a largura */
+    width: 100%;
 }
 
 .nav-link {
-    transition: color 0.3s ease, transform 0.3s ease; /* Adiciona transição para o transform */
+    transition: color 0.3s ease, transform 0.3s ease;
   }
   
   .nav-link:hover {
     color: var(--color6) !important;
-    transform: scale(1.1); /* Aumenta o tamanho da letra em 10% */
+    transform: scale(1.1);
   }
   
   .dropdown-item {
-    transition: color 0.3s ease /* Adiciona transição para o transform */
+    transition: color 0.3s ease;
   }
   
   .dropdown-item:hover {
@@ -69,7 +69,7 @@ body {
     padding: 20px;
     text-align: center;
     margin-bottom: 20px;
-    width: 65%; /* Aumenta a largura */
+    width: 65%;
     height: 97%;
 }
 

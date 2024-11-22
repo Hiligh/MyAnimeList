@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.getElementById('search-item');
     const resultsDropdown = document.getElementById('search-results-dropdown');
     const idusuario = document.body.dataset.idusuario;
-    const animeID = document.body.dataset.idanime; // ID do anime que será adicionado
+    const animeID = document.body.dataset.idanime;
 
     // Funções de busca e dropdown
     const searchMangas = async (query) => {
@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const updateDropdown = (mangas, animes) => {
-        resultsDropdown.innerHTML = ''; // Limpa o dropdown antes de popular
+        resultsDropdown.innerHTML = '';
 
         if (mangas.length > 0) {
             const mangaHeader = document.createElement('li');
@@ -49,7 +49,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 item.classList.add('dropdown-item');
                 item.textContent = manga.Titulo;
                 item.addEventListener('click', () => {
-                    // Redireciona para a página de detalhes do Mangá, incluindo o idusuario
                     window.location.href = `/manga/${manga.IDManga}?idusuario=${idusuario}`;
                 });
     
@@ -68,7 +67,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 item.classList.add('dropdown-item');
                 item.textContent = anime.Nome;
                 item.addEventListener('click', () => {
-                    // Redireciona para a página de detalhes do Anime, incluindo o idusuario
                     window.location.href = `/anime/${anime.IDAnime}?idusuario=${idusuario}`;
                 });
                 resultsDropdown.appendChild(item);
@@ -113,10 +111,8 @@ document.addEventListener('DOMContentLoaded', () => {
       
           const listas = await response.json();
       
-          // Limpa a div de listas disponíveis
           listasDisponiveisElement.innerHTML = '';
-      
-          // Verifica se há listas
+
           if (listas.length > 0) {
             listas.forEach((lista) => {
               const listaButton = document.createElement('button');
@@ -186,10 +182,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const linkListasMangas = document.getElementById('linkListasMangas');
 
     linkListasMangas.addEventListener('click', async function(event) {
-      event.preventDefault();  // Evita o comportamento padrão do link
+      event.preventDefault();
       console.log("conseguiu vir até aqui apertando o botão")
       try {
-          // Fazendo a requisição para pegar as listas de mangas
+
           const response = await fetch(`/usuario/${idusuario}/listas-mangas`);
 
           if (!response.ok) {
@@ -197,9 +193,8 @@ document.addEventListener('DOMContentLoaded', () => {
           }
 
           const listasMangas = await response.json();
-          console.log(listasMangas); // Você pode checar aqui as listas de mangas
+          console.log(listasMangas);
 
-          // Redireciona para a página de listas de mangas, passando o ID do usuário
           window.location.href = `/listas-mangas?usuarioId=${idusuario}`;
       } catch (error) {
           console.error('Erro ao carregar as listas de mangas:', error);
@@ -248,14 +243,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const nota = parseInt(document.getElementById('nota').value);
         if (nota >= 0 && nota <= 5) {
             try {
-                // Envia a avaliação ao servidor
                 const response = await fetch('/avaliar-anime', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
-                        idAnime: animeID,  // ID do anime sendo avaliado
-                        idUsuario: idusuario, // ID do usuário
-                        novaNota: nota  // Nota fornecida pelo usuário
+                        idAnime: animeID,
+                        idUsuario: idusuario,
+                        novaNota: nota
                     })
                 });
 

@@ -203,7 +203,7 @@ h2:hover {
 
 .nav-link:hover {
   color: var(--color6) !important;
-  transform: scale(1.1); /* Aumenta o tamanho da letra em 10% */
+  transform: scale(1.1);
 }
 
 .dropdown-item {

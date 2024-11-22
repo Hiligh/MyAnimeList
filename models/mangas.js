@@ -8,36 +8,36 @@ const Manga = sequelize.define('Manga', {
     autoIncrement: true,
   },
   Titulo: {
-    type: DataTypes.STRING(370), // Ajuste o tamanho conforme necessário
+    type: DataTypes.STRING(370),
     allowNull: false,
   },
   Descricao: {
-    type: DataTypes.TEXT, // Usa TEXT para descrições longas
-    allowNull: true, // Permite null caso a descrição não esteja disponível
+    type: DataTypes.TEXT,
+    allowNull: true,
   },
   Nota: {
-    type: DataTypes.INTEGER, // Avaliação média (exemplo: 8.5)
+    type: DataTypes.INTEGER,
     allowNull: true,
   },
   Ano: {
-    type: DataTypes.INTEGER, // Ano de publicação do mangá
+    type: DataTypes.INTEGER,
     allowNull: true,
   },
   Genero: {
-    type: DataTypes.STRING(500), // Tags ou gêneros, separados por vírgula (ex: "Action, Adventure")
+    type: DataTypes.STRING(500),
     allowNull: true,
   },
   Cover: {
-    type: DataTypes.STRING(500), // Armazena a URL da capa do mangá
+    type: DataTypes.STRING(500),
     allowNull: true,
   },
   Membros: {
-    type: DataTypes.INTEGER, // Número de membros/usuários que adicionaram este mangá
+    type: DataTypes.INTEGER,
     allowNull: true,
   }
 }, {
-  tableName: 'manga', // Nome da tabela no banco de dados
-  timestamps: false,  // Desabilita a criação automática de colunas `createdAt` e `updatedAt`
+  tableName: 'manga',
+  timestamps: false,
 });
 
 module.exports = Manga;

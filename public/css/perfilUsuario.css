@@ -56,7 +56,7 @@ body {
 
 /* Ajuste da área principal (Main Content) */
 .container .row > .col-md-9 {
-  padding-left: 40px; /* Aumenta o espaço entre o conteúdo principal e a sidebar */
+  padding-left: 40px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -68,7 +68,7 @@ body {
   padding: 25px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin-top: 30px;
-  max-width: 100%; /* Ajusta a largura para ser um pouco maior */
+  max-width: 100%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -80,7 +80,7 @@ body {
   padding: 25px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin-top: 20px;
-  max-width: 100%; /* Ajusta a largura para ser um pouco maior */
+  max-width: 100%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -142,12 +142,12 @@ button.btn-block {
   font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
     Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif,
     Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
-  font-size: 0.9rem;  /* Diminuído o tamanho da fonte */
+  font-size: 0.9rem;
   font-weight: 900;
   line-height: 1.5;
   margin: 0;
   -webkit-mask-image: -webkit-radial-gradient(#000, #fff);
-  padding: 0.8rem 1.8rem; /* Diminuído o padding */
+  padding: 0.8rem 1.8rem;
 }
 
 .btn-31:disabled {
@@ -169,7 +169,7 @@ button.btn-block {
 
 .btn-31 {
   border-width: 1px;
-  padding: 0.8rem 1.8rem; /* Ajuste de padding */
+  padding: 0.8rem 1.8rem;
   position: relative;
   text-transform: uppercase;
 }

@@ -1,4 +1,4 @@
-// routes/listas.js
+
 const express = require('express');
 const router = express.Router();
 const Lista = require('../models/lista');
@@ -7,11 +7,11 @@ const Anime = require('../models/animes');
 const ListaManga = require('../models/listaManga');
 const Manga = require('../models/mangas');
 
-// Rota para criar uma nova lista
+
 router.post('/criar-lista', async (req, res) => {
   const { nome, IDUsuario } = req.body;
   try {
-    // Verifica se os dados são válidos
+    
     if (!nome || !IDUsuario) {
       return res.status(400).json({ message: 'Nome e IDUsuario são obrigatórios' });
     }
@@ -19,33 +19,33 @@ router.post('/criar-lista', async (req, res) => {
     const novaLista = await Lista.create({ Nome: nome, IDUsuario });
     res.status(201).json({ message: 'Lista criada com sucesso', lista: novaLista });
   } catch (error) {
-    // Adiciona um log detalhado do erro
+    
     console.error('Erro ao criar lista:', error);
     res.status(500).json({ message: 'Erro ao criar lista', error: error.message });
   }
 });
 
-// Rota para adicionar um anime a uma lista
+
 router.post('/adicionar-anime', async (req, res) => {
   const { IDLista, IDAnime } = req.body;
 
   try {
-    // Validação dos campos
+    
     if (!IDLista || !IDAnime) {
       return res.status(400).json({ message: 'IDLista e IDAnime são obrigatórios' });
     }
 
-    // Verifica se o anime já está na lista
+    
     const animeNaLista = await ListaAnime.findOne({
       where: { IDLista, IDAnime }
     });
 
     if (animeNaLista) {
-      // Se já existe, retorna uma mensagem dizendo que o anime já foi adicionado
+      
       return res.status(400).json({ message: 'Anime já está nesta lista' });
     }
 
-    // Adiciona o anime à lista
+    
     const listaAnime = await ListaAnime.create({ IDLista, IDAnime });
     res.status(201).json({ message: 'Anime adicionado à lista com sucesso', listaAnime });
   } catch (error) {
@@ -68,20 +68,20 @@ router.post('/adicionar-manga', async (req, res) => {
 });
 
 
-// Rota para obter todas as listas do usuário com os animes associados
 
-// Rota para obter todas as listas do usuário
+
+
 router.get('/usuario/:IDUsuario/listas', async (req, res) => {
-  const { IDUsuario } = req.params; // Obtém o ID do usuário a partir da URL
+  const { IDUsuario } = req.params; 
 
   try {
-    // Busca as listas do usuário na tabela 'lista'
+    
     const listas = await Lista.findAll({
-      where: { IDUsuario }, // Condição para buscar listas associadas ao IDUsuario
-      attributes: ['IDLista', 'Nome'], // Seleciona apenas os campos necessários
+      where: { IDUsuario }, 
+      attributes: ['IDLista', 'Nome'], 
     });
 
-    res.json(listas); // Retorna as listas em formato JSON
+    res.json(listas); 
   } catch (error) {
     console.error('Erro ao obter listas:', error);
     res.status(500).json({ message: 'Erro ao obter listas do usuário' });
@@ -94,7 +94,7 @@ router.get('/usuario/:idusuario/listas-animes', async (req, res) => {
   
   try {
     const listasAnimes = await Lista.findAll({
-      where: { IDUsuario: idusuario }, // Aqui filtra pelo ID do usuário
+      where: { IDUsuario: idusuario }, 
       include: [
         {
           model: Anime,
@@ -103,7 +103,7 @@ router.get('/usuario/:idusuario/listas-animes', async (req, res) => {
       ]
     });
 
-    res.json(listasAnimes); // Retorna a lista de animes no formato JSON
+    res.json(listasAnimes); 
   } catch (error) {
     console.error('Erro ao carregar as listas de animes:', error);
     res.status(500).json({ error: 'Erro ao carregar as listas de animes' });
@@ -114,34 +114,34 @@ router.get('/usuario/:IDUsuario/listas-mangas', async (req, res) => {
   const { IDUsuario } = req.params;
 
   try {
-    // Busca todas as listas de mangas do usuário com os mangas associados
+    
     const listasMangas = await Lista.findAll({
-      where: { IDUsuario }, // Filtro pelo ID do usuário
+      where: { IDUsuario }, 
       include: [
         {
           model: Manga,
-          through: { model: ListaManga }, // Junta pela tabela associativa
-          attributes: ['IDManga', 'Titulo', 'Genero', 'Ano', 'Descricao', 'Nota', 'Cover'], // Inclui os campos do Manga
+          through: { model: ListaManga }, 
+          attributes: ['IDManga', 'Titulo', 'Genero', 'Ano', 'Descricao', 'Nota', 'Cover'], 
         },
       ],
     });
 
-    res.json(listasMangas); // Retorna as listas no formato JSON
+    res.json(listasMangas); 
   } catch (error) {
     console.error('Erro ao carregar as listas de mangas:', error);
     res.status(500).json({ message: 'Erro ao carregar listas de mangas', error: error.message });
   }
 });
 
-// Rota para buscar os mangás de uma lista específica
+
 router.get('/mangas/:idLista', async (req, res) => {
   const { idLista } = req.params;
 
   try {
-      // Busca os mangás associados a essa lista
+      
       const mangas = await ListaManga.findAll({
           where: { IDLista: idLista },
-          include: [{ model: Manga }], // Inclui os detalhes do modelo Manga
+          include: [{ model: Manga }], 
       });
 
       res.json(mangas);

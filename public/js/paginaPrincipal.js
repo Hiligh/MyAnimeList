@@ -37,9 +37,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Função para atualizar o dropdown com os resultados da pesquisa
     const updateDropdown = (mangas, animes) => {
-        resultsDropdown.innerHTML = ''; // Limpa o dropdown antes de popular
+        resultsDropdown.innerHTML = '';
 
-        // Se houver Mangás, cria a seção "Mangás"
         if (mangas.length > 0) {
             const mangaHeader = document.createElement('li');
             mangaHeader.classList.add('dropdown-header');
@@ -51,7 +50,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 item.classList.add('dropdown-item');
                 item.textContent = manga.Titulo;
                 item.addEventListener('click', () => {
-                    // Redireciona para a página de detalhes do Mangá, incluindo o idusuario
                     window.location.href = `/manga/${manga.IDManga}?idusuario=${idusuario}`;
                 });
     
@@ -59,7 +57,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        // Se houver Animes, cria a seção "Animes"
         if (animes.length > 0) {
             const animeHeader = document.createElement('li');
             animeHeader.classList.add('dropdown-header');
@@ -71,14 +68,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 item.classList.add('dropdown-item');
                 item.textContent = anime.Nome;
                 item.addEventListener('click', () => {
-                    // Redireciona para a página de detalhes do Anime, incluindo o idusuario
                     window.location.href = `/anime/${anime.IDAnime}?idusuario=${idusuario}`;
                 });
                 resultsDropdown.appendChild(item);
             });
         }
 
-        // Se não houver resultados, exibe uma mensagem
         if (mangas.length === 0 && animes.length === 0) {
             const noResults = document.createElement('li');
             noResults.classList.add('dropdown-item');
@@ -86,7 +81,6 @@ document.addEventListener('DOMContentLoaded', () => {
             resultsDropdown.appendChild(noResults);
         }
 
-        // Exibe o dropdown com os resultados
         resultsDropdown.classList.add('show');
     };
 
@@ -133,10 +127,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const linkListasMangas = document.getElementById('linkListasMangas');
 
   linkListasMangas.addEventListener('click', async function(event) {
-      event.preventDefault();  // Evita o comportamento padrão do link
+      event.preventDefault();
       console.log("conseguiu vir até aqui apertando o botão")
       try {
-          // Fazendo a requisição para pegar as listas de mangas
           const response = await fetch(`/usuario/${idusuario}/listas-mangas`);
 
           if (!response.ok) {
@@ -144,9 +137,8 @@ document.addEventListener('DOMContentLoaded', () => {
           }
 
           const listasMangas = await response.json();
-          console.log(listasMangas); // Você pode checar aqui as listas de mangas
+          console.log(listasMangas);
 
-          // Redireciona para a página de listas de mangas, passando o ID do usuário
           window.location.href = `/listas-mangas?usuarioId=${idusuario}`;
       } catch (error) {
           console.error('Erro ao carregar as listas de mangas:', error);
@@ -168,19 +160,17 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // Função para renderizar os animes mais populares
     const renderPopularAnimes = (animes) => {
         const popularAnimesContainer = document.getElementById('popular-animes');
-        popularAnimesContainer.innerHTML = '';  // Limpa os animes anteriores
+        popularAnimesContainer.innerHTML = '';
 
-        // Verifica se há animes para exibir
         if (animes.length === 0) {
             const item = document.createElement('li');
             item.classList.add('list-group-item');
             item.textContent = 'Nenhum anime encontrado.';
             popularAnimesContainer.appendChild(item);
         } else {
-            // Cria a lista de animes mais populares
+
             animes.forEach(anime => {
                 const item = document.createElement('li');
                 item.classList.add('list-group-item');
@@ -191,8 +181,8 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     
     fetchPopularAnimes();
-    // Certificando-se de que o elemento já está disponível no DOM
-    const topRatedAnimesList = document.getElementById('top-rated-animes'); // Elemento de destino
+
+    const topRatedAnimesList = document.getElementById('top-rated-animes');
 
     // Função para buscar os animes mais bem avaliados
     const fetchTopRatedAnimes = async () => {
@@ -213,24 +203,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Função para atualizar a lista de animes mais bem avaliados na página
     const updateTopRatedAnimes = (animes) => {
-        topRatedAnimesList.innerHTML = ''; // Limpar a lista antes de adicionar novos itens
+        topRatedAnimesList.innerHTML = '';
 
         if (animes.length === 0) {
         topRatedAnimesList.innerHTML = '<li class="list-group-item">Nenhum anime encontrado</li>';
         } else {
-        // Para cada anime, criar um item de lista
         animes.forEach(anime => {
             const listItem = document.createElement('li');
             listItem.classList.add('list-group-item');
             listItem.textContent = `${anime.Nome} - Nota: ${anime.Nota}`;
-            
-            // Adiciona o item na lista
+
             topRatedAnimesList.appendChild(listItem);
         });
         }
     };
 
-    // Chama a função para carregar os animes mais bem avaliados
     fetchTopRatedAnimes();
 
     // Função para buscar os mangás mais populares
@@ -341,7 +328,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // Chama a função para carregar os animes mais recentes
     fetchRecentAnimes();
 
     // Função para buscar os mangás mais recentes
@@ -379,7 +365,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // Chama a função para carregar os mangás mais recentes
     fetchRecentMangas();
 
 });

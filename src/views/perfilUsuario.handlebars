@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="/css/perfilUsuario.css">
 </head>
 <body>
-  <!-- Confirmação de Exclusão de Conta -->
+
   <div class="modal" id="confirmDeleteModal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -29,7 +29,6 @@
     </div>
   </div>
 
-  <!-- Modal para Editar Informações -->
   <div class="modal" id="editUserModal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -63,16 +62,14 @@
     </div>
   </div>
 
-  <!-- Container Principal -->
   <div class="container-fluid m-0">
     <div class="row">
 
-      <!-- Sidebar -->
       <div class="col-md-2 sidebar d-flex flex-column">
         <div class="d-flex justify-content-center align-items-center mt-4">
           <img src="../assets/17004.png" alt="Imagem do Usuário" class="user-img">
         </div>
-        <!-- Usando data-* para passar as informações do usuário -->
+
         <div id="usernameBtn" class="mt-5 mb-5" data-nome="{{infoUsuario.Nome}}" data-idade="{{infoUsuario.Idade}}" data-idusuario="{{infoUsuario.IDUsuario}}">
           {{infoUsuario.Nome}}
         </div>
@@ -110,10 +107,8 @@
 
       </div>
 
-      <!-- Conteúdo Principal -->
       <div class="col-md-8">
-        
-        <!-- Div Superior -->
+
         <div class="col-md-12" id="divSuperior">
           <div class="row justify-content-center mt-3">
             <div class="col-md-6 text-center">
@@ -129,17 +124,15 @@
           </div>
         </div>
 
-        <!-- Div Inferior -->
+
         <div class="col-md-12" id="divInferior" class="p-5 mt-5">
           <div class="row">
-            
-            <!-- Primeira coluna de botões -->
+
             <div class="col-md-6 d-flex flex-column align-items-center">
               <button class="btn btn-secondary mb-2 btn-block">Excluir Listas Anime</button>
               <button class="btn btn-secondary btn-block">Excluir Listas Mangá</button>
             </div>
-            
-            <!-- Segunda coluna de botões -->
+
             <div class="col-md-6 d-flex flex-column align-items-center">
               <button class="btn btn-secondary mb-2 btn-block" id="btnEditUserInfo">Editar Informações do Usuário</button>
               <button class="btn btn-danger btn-block" id="btnOpenModal">Excluir Conta</button>
@@ -153,7 +146,6 @@
     </div>
   </div>
 
-  <!-- Script para controlar o modal -->
   <script src="/js/perfilUsuario.js"></script>
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script> <!-- Trocar para o jQuery completo -->
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>

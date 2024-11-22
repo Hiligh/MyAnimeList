@@ -25,55 +25,55 @@ const Anime = sequelize.define('Anime', {
     defaultValue: null, 
   },
   Status: {
-    type: DataTypes.STRING(100), // Novo campo para Status (exemplo: 'Em exibição', 'Completo')
+    type: DataTypes.STRING(100),
     allowNull: true,
   },
   Start_Aired: {
-    type: DataTypes.STRING(20), // Data de início da exibição (Formato: 'YYYY-MM-DD')
+    type: DataTypes.STRING(20),
     allowNull: true,
   },
   End_Aired: {
-    type: DataTypes.STRING(20), // Data de fim da exibição (Formato: 'YYYY-MM-DD')
+    type: DataTypes.STRING(20),
     allowNull: true,
   },
   Producers: {
-    type: DataTypes.STRING(500), // Lista de produtores separados por vírgula
+    type: DataTypes.STRING(500),
     allowNull: true,
   },
   Licensors: {
-    type: DataTypes.STRING(500), // Lista de licenciadores
+    type: DataTypes.STRING(500),
     allowNull: true,
   },
   Studios: {
-    type: DataTypes.STRING(500), // Lista de estúdios
+    type: DataTypes.STRING(500),
     allowNull: true,
   },
   Source: {
-    type: DataTypes.STRING(100), // Fonte original (ex: 'Mangá', 'Light Novel', etc.)
+    type: DataTypes.STRING(100),
     allowNull: true,
   },
   Themes: {
-    type: DataTypes.STRING(500), // Lista de temas separados por vírgula
+    type: DataTypes.STRING(500),
     allowNull: true,
   },
   Demographics: {
-    type: DataTypes.STRING(100), // Público-alvo (ex: 'Shounen', 'Seinen', etc.)
+    type: DataTypes.STRING(100),
     allowNull: true,
   },
   Duration_Minutes: {
-    type: DataTypes.INTEGER, // Duração de cada episódio em minutos
+    type: DataTypes.INTEGER,
     allowNull: true,
   },
   Rating: {
-    type: DataTypes.STRING(50), // Classificação do anime (ex: 'PG', 'R', etc.)
+    type: DataTypes.STRING(50),
     allowNull: true,
   },
   Nota: {
-    type: DataTypes.INTEGER, // Avaliação média
+    type: DataTypes.INTEGER,
     allowNull: true,
   },
   Membros: {
-    type: DataTypes.INTEGER, // Número de membros/usuários que adicionaram este anime
+    type: DataTypes.INTEGER,
     allowNull: true,
   }
 }, {

@@ -1,10 +1,10 @@
 @import url('variables.css');
 
 body {
-    min-height: 100vh; /* Garante que o body ocupe no mínimo 100% da altura da viewport */
-    margin: 0; /* Remove qualquer margem padrão do body */
-    display: flex; /* Para permitir que o conteúdo centralize verticalmente, se necessário */
-    flex-direction: column; /* Permite um layout em coluna */
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
     background: var(--color1);
     background: -moz-linear-gradient(top, var(--color1) 0%, var(--color3) 50%, var(--color5) 100%);
     background: -webkit-linear-gradient(top, var(--color1) 0%, var(--color3) 50%, var(--color5) 100%);
@@ -23,19 +23,19 @@ body {
     background-color: #fff;
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
     border-radius: 8px;
-    padding: 10px 0; /* Espaço ao redor dos itens */
-    display: none; /* Oculto inicialmente */
+    padding: 10px 0;
+    display: none;
 }
 
 #search-results-dropdown.show {
-    display: block; /* Mostra apenas quando a classe 'show' é aplicada */
+    display: block;
 }
 
 /* Estilo para os cabeçalhos de seção (Animes e Mangás) */
 #search-results-dropdown .dropdown-header {
     font-size: 14px;
     font-weight: bold;
-    color: #007bff; /* Cor de destaque */
+    color: #007bff;
     padding: 8px 20px;
     text-transform: uppercase;
     background-color: #f8f9fa;
@@ -62,7 +62,7 @@ body {
 
 /* Ícones ao lado dos itens para uma aparência mais moderna (se desejar usar) */
 #search-results-dropdown .dropdown-item::before {
-    content: "🔍"; /* Ícone de lupa, como exemplo */
+    content: "🔍";
     margin-right: 8px;
     color: #007bff;
 }
@@ -91,67 +91,67 @@ body {
 }
 
 .anime-container {
-    border-radius: 12px; /* Bordas arredondadas */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombreamento */
-    background-color: #fff; /* Fundo branco */
-    padding: 10px; /* Espaçamento interno */
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+    padding: 10px;
 }
 
 .anime-container .list-group-item {
-    border-radius: 8px; /* Bordas arredondadas dos itens */
-    transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s; /* Suavidade no efeito de hover */
+    border-radius: 8px;
+    transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
 }
 
 .anime-container .list-group-item:hover {
-    transform: translateY(-3px); /* Elevação ao passar o mouse */
-    background-color: #f8f9fa; /* Fundo levemente mais claro */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra nos itens */
-    cursor: pointer; /* Indica que é interativo */
+    transform: translateY(-3px);
+    background-color: #f8f9fa;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
 }
 
 h4 {
     color: #ffffff;
-    text-align: center; /* Centraliza o texto */
-    font-size: 1.5rem; /* Tamanho padrão do texto */
+    text-align: center;
+    font-size: 1.5rem;
 }
 
 h4:hover {
-    transform: scale(1.2); /* Aumenta o tamanho do texto */
-    animation: horizontal-palette-scroll 3s infinite linear; /* Ativa a animação do gradiente */
-    color: transparent; /* Torna o texto transparente por padrão */
+    transform: scale(1.2);
+    animation: horizontal-palette-scroll 3s infinite linear;
+    color: transparent;
     background-image: linear-gradient(to right, 
         var(--color1), 
         var(--color3),  
         var(--color5), 
         var(--color6)
-    ); /* Gradiente horizontal usando a paleta */
-    background-size: 300% 100%; /* Faz o gradiente ser maior horizontalmente */
-    background-clip: text; /* Mostra apenas o gradiente no texto */
-    -webkit-background-clip: text; /* Compatibilidade com navegadores WebKit */
-    transition: transform 0.3s ease, background-position 0.3s ease; /* Transição suave ao aumentar de tamanho e iniciar o gradiente */
+    );
+    background-size: 300% 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    transition: transform 0.3s ease, background-position 0.3s ease;
 }
 
 /* Animação do gradiente horizontal */
 @keyframes horizontal-palette-scroll {
     0% {
-        background-position: 0% 0%; /* Gradiente começa na esquerda */
+        background-position: 0% 0%;
     }
     100% {
-        background-position: 100% 0%; /* Gradiente termina na direita */
+        background-position: 100% 0%;
     }
 }
 
 .nav-link {
-    transition: color 0.3s ease, transform 0.3s ease; /* Adiciona transição para o transform */
+    transition: color 0.3s ease, transform 0.3s ease;
   }
   
   .nav-link:hover {
     color: var(--color6) !important;
-    transform: scale(1.1); /* Aumenta o tamanho da letra em 10% */
+    transform: scale(1.1);
   }
   
   .dropdown-item {
-    transition: color 0.3s ease /* Adiciona transição para o transform */
+    transition: color 0.3s ease
   }
   
   .dropdown-item:hover {

@@ -1,11 +1,10 @@
 @import url('variables.css');
 
-/* Estilo global do body */
 body {
-    min-height: 100vh; /* Garante que o body ocupe no mínimo 100% da altura da viewport */
-    margin: 0; /* Remove margens padrão */
-    display: flex; /* Flex para centralizar verticalmente, se necessário */
-    flex-direction: column; /* Layout em coluna */
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
     background: var(--color1);
     background: -moz-linear-gradient(top, var(--color5) 0%, var(--color3) 50%, var(--color1) 100%);
     background: -webkit-linear-gradient(top, var(--color5) 0%, var(--color3) 50%, var(--color1) 100%);
@@ -15,14 +14,14 @@ body {
 /* Container principal dos animes */
 #anime-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Colunas responsivas */
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
     padding: 20px;
     max-width: 1200px;
-    margin: 20px auto; /* Margem superior e centralização */
-    background-color: var(--color4); /* Fundo branco com leve tom do tema */
-    border-radius: 10px; /* Bordas arredondadas */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombreamento suave */
+    margin: 20px auto;
+    background-color: var(--color4);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 /* Estilo dos itens de anime */
@@ -31,9 +30,9 @@ body {
     padding: 15px;
     background-color: var(--color3);
     text-align: center;
-    border-radius: 8px; /* Bordas arredondadas */
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Sombras */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Efeito de transição no hover */
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .anime-item p {
@@ -42,14 +41,14 @@ body {
 }
 
 .anime-item:hover {
-    transform: translateY(-5px); /* Eleva o item ao passar o mouse */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Sombreamento mais intenso */
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .anime-item img {
     max-width: 100%;
     height: auto;
-    border-radius: 6px; /* Bordas arredondadas para imagens */
+    border-radius: 6px;
     margin-bottom: 10px;
 }
 
@@ -58,7 +57,7 @@ body {
     font-size: 1.2rem;
     margin: 10px 0;
     font-weight: bold;
-    color: var(--color2); /* Cor adaptada do tema */
+    color: var(--color2);
 }
 
 /* Botão "Ver Mais" */
@@ -78,7 +77,7 @@ body {
 }
 
 #ver-mais:hover {
-    background-color: var(--color2); /* Fundo mais claro ao hover */
+    background-color: var(--color2);
 }
 
 #ver-mais:focus {
@@ -86,7 +85,7 @@ body {
 }
 
 #ver-mais:active {
-    background-color: var(--color3); /* Fundo escuro ao clicar */
+    background-color: var(--color3);
 }
 
 /* Títulos principais com animação de hover */
@@ -133,19 +132,19 @@ h2:hover {
   background-color: #fff;
   box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
   border-radius: 8px;
-  padding: 10px 0; /* Espaço ao redor dos itens */
-  display: none; /* Oculto inicialmente */
+  padding: 10px 0;
+  display: none;
 }
 
 #search-results-dropdown.show {
-  display: block; /* Mostra apenas quando a classe 'show' é aplicada */
+  display: block;
 }
 
 /* Estilo para os cabeçalhos de seção (Animes e Mangás) */
 #search-results-dropdown .dropdown-header {
   font-size: 14px;
   font-weight: bold;
-  color: #007bff; /* Cor de destaque */
+  color: #007bff;
   padding: 8px 20px;
   text-transform: uppercase;
   background-color: #f8f9fa;
@@ -172,7 +171,7 @@ h2:hover {
 
 /* Ícones ao lado dos itens para uma aparência mais moderna (se desejar usar) */
 #search-results-dropdown .dropdown-item::before {
-  content: "🔍"; /* Ícone de lupa, como exemplo */
+  content: "🔍";
   margin-right: 8px;
   color: #007bff;
 }
@@ -256,16 +255,16 @@ h2:hover {
 }
 
 .nav-link {
-  transition: color 0.3s ease, transform 0.3s ease; /* Adiciona transição para o transform */
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .nav-link:hover {
   color: var(--color6) !important;
-  transform: scale(1.1); /* Aumenta o tamanho da letra em 10% */
+  transform: scale(1.1);
 }
 
 .dropdown-item {
-  transition: color 0.3s ease /* Adiciona transição para o transform */
+  transition: color 0.3s ease
 }
 
 .dropdown-item:hover {
